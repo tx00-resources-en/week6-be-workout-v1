@@ -32,14 +32,12 @@ beforeEach(async () => {
 
 describe("when there is initially some notes saved", () => {
   test("all workouts are returned", async () => {
-    console.log("entered test");
     const response = await api.get("/api/workouts");
 
     expect(response.body).toHaveLength(initialWorkouts.length);
   });
 
   test("a specific workout is within the returned workouts", async () => {
-    console.log("entered test");
     const response = await api.get("/api/workouts");
 
     const contents = response.body.map((r) => r.title);
@@ -47,7 +45,6 @@ describe("when there is initially some notes saved", () => {
   });
 
   test("Workouts are returned as json", async () => {
-    console.log("entered test");
     await api
       .get("/api/workouts")
       .expect(200)
@@ -55,7 +52,6 @@ describe("when there is initially some notes saved", () => {
   });
 
   test("New workout added successfully", async () => {
-    console.log("entered test");
     const newWorkout = {
       title: "test workout x",
       reps: 19,
@@ -65,7 +61,6 @@ describe("when there is initially some notes saved", () => {
   });
 
   test("a valid workout can be added", async () => {
-    console.log("entered test");
     const newWorkout = {
       title: "Situps",
       reps: 25,
@@ -87,7 +82,6 @@ describe("when there is initially some notes saved", () => {
   });
 
   test("workout without title is not added", async () => {
-    console.log("entered test");
     const newWorkout = {
       reps: 23,
     };
